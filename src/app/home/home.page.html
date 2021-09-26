@@ -1,20 +1,37 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
+<ion-header style="background-color: black">
+  <div id="bkl">
+    <ion-icon name="close-outline" [routerLink]="['/login']"></ion-icon>
+  </div>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+  <ion-header>
+    <ion-toolbar color="tertiary">
+      <ion-title class="txt">RegistApp</ion-title>
     </ion-toolbar>
   </ion-header>
 
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <ion-card>
+      <ion-card-header>
+        <p>Inicia sesión para acceder a tu portal de asistencia </p>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-list lines="full">
+          <ion-item>
+            <ion-input [(ngModel)]="usuario" placeholder="Nombre de Usuario"></ion-input>
+            <ion-icon name="person"></ion-icon>
+          </ion-item>
+          <ion-item >
+            <ion-input [(ngModel)]="contrasenna" [type]="show ? 'text' : 'password'" placeholder="Contraseña"></ion-input>
+            <ion-icon [name]="passwordToggleIcon" (click)="toggleIcon()"></ion-icon>
+          </ion-item>
+        </ion-list>
+        <a [routerLink]="['/password']">¿Olvidaste tu contraseña?</a>
+        <ion-icon name="qr-code-outline" ></ion-icon>
+        <ion-button (click)='validNull()'>Continuar</ion-button>
+      </ion-card-content>
+    </ion-card>
   </div>
 </ion-content>
