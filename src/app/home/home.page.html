@@ -10,15 +10,17 @@
       <ion-title class="txt">RegistApp</ion-title>
     </ion-toolbar>
   </ion-header>
+
   <div id="container">
     <ion-card>
       <ion-card-header>
         <p>Inicia sesión para acceder a tu portal de asistencia </p>
       </ion-card-header>
+
       <ion-card-content>
         <ion-list lines="full">
           <ion-item>
-            <ion-input [(ngModel)]="usuario" placeholder="Correo Electronico"></ion-input>
+            <ion-input [(ngModel)]="usuario" placeholder="Nombre de Usuario"></ion-input>
             <ion-icon name="person"></ion-icon>
           </ion-item>
           <ion-item >
@@ -29,17 +31,6 @@
         <a [routerLink]="['/password']">¿Olvidaste tu contraseña?</a>
         <ion-icon name="qr-code-outline" ></ion-icon>
         <ion-button (click)='validNull()'>Continuar</ion-button>
-      </ion-card-content>
-    </ion-card>
-    <ion-card>
-      <ion-card-content>
-        <ion-card-header>
-          <p>¿Aun no tienes una cuenta? </p>
-        </ion-card-header>
-        <ion-button [routerLink]="['/registro']">Registrate</ion-button>
-        <div class="alertMessaje">
-          {{messaje}}
-        </div>
       </ion-card-content>
     </ion-card>
   </div>

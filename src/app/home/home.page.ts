@@ -12,7 +12,6 @@ export class HomePage {
   passwordToggleIcon = 'eye';
   usuario = null;
   contrasenna = null;
-  messaje: string="";
 
   constructor(private router: Router) {}
 
@@ -28,9 +27,6 @@ export class HomePage {
   validNull() {
     if(this.usuario == "instituto@duocuc.cl" && this.contrasenna == 1234) {
       this.router.navigate(['/welcome'])
-    }
-    else {
-      this.messaje="Correo o contraseña no validos";
     }
   }
 }
