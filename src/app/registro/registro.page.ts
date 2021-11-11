@@ -19,7 +19,7 @@ export class RegistroPage implements OnInit {
   constructor(private router: Router) {
     this.formulario=new FormGroup({
       email: new FormControl('',[Validators.required, Validators.minLength(10), Validators.email]),
-      pass: new FormControl('', [Validators.required]),
+      pass: new FormControl('', [Validators.required, Validators.minLength(6)]),
     });
   }
 
