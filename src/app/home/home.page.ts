@@ -12,8 +12,8 @@ export class HomePage implements OnInit {
 
   show = false;
   passwordToggleIcon = 'eye';
-  email = null;
-  password = null;
+  email: string;
+  password: string;
   messaje: string="";
 
   
@@ -29,10 +29,9 @@ export class HomePage implements OnInit {
   }
 
   validNull() {
-    this.authService.login(this.email, this.password).then(res=>{
-      this.router.navigate(['/login']);
-    })
-    .catch(err=> alert('los datos son incorrectos'))
+    this.authService.login(this.email, this.password).then(res => {
+      this.router.navigate(['/welcome']);
+    }).catch(err=> alert('los datos son incorrectos'))
   }
 
   ngOnInit() {

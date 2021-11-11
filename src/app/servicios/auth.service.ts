@@ -11,9 +11,9 @@ export class AuthService {
 
   login(email:string, password:string){
     return new Promise((resolve, rejected) => {
-      this.AFauth.signInWithEmailAndPassword(email, password).then(res => {
-        console.log('INICIO DE SESION CORRECTO: ' + res)
-      }).catch(err => console.log('ERROR AL INICIAR SESION : ' + err))
+      this.AFauth.signInWithEmailAndPassword(email, password).then(user => {
+        resolve('INICIO DE SESION CORRECTO: ' + user)
+      }).catch(err => rejected('ERROR AL INICIAR SESION : ' + err))
     })
   }
 }
