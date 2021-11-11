@@ -1,20 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService} from "../servicios/auth.service"
+
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements OnInit {
 
   show = false;
   passwordToggleIcon = 'eye';
-  usuario = null;
-  contrasenna = null;
+  email = null;
+  password = null;
   messaje: string="";
 
-  constructor(private router: Router) {}
+  
+  constructor(private router: Router, private authService: AuthService) {}
 
   toggleIcon(): void {
     this.show = !this.show
@@ -26,11 +29,16 @@ export class HomePage {
   }
 
   validNull() {
-    if(this.usuario == "instituto@duocuc.cl" && this.contrasenna == 1234) {
-      this.router.navigate(['/welcome'])
-    }
-    else {
-      this.messaje="Correo o contraseña no validos";
-    }
+    this.authService.login(this.email, this.password).then(res=>{
+      this.router.navigate(['/login']);
+    })
+    .catch(err=> alert('los datos son incorrectos'))
   }
+
+  ngOnInit() {
+
+  }
+  
 }
+
+
