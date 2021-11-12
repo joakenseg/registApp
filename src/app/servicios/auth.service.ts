@@ -16,4 +16,12 @@ export class AuthService {
       }).catch(err => rejected('ERROR AL INICIAR SESION : ' + err))
     })
   }
+
+  register(email: string, password: string){
+    return new Promise((resolve, reject) => {
+      this.AFauth.createUserWithEmailAndPassword(email, password).then( res =>{
+        resolve(res)
+      }).catch( err => reject(err))
+    })
+  }
 }

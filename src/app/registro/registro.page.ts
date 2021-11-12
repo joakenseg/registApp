@@ -2,6 +2,7 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../servicios/auth.service';
 
 @Component({
   selector: 'app-registro',
@@ -11,12 +12,12 @@ import { Router } from '@angular/router';
 export class RegistroPage implements OnInit {
   show = false;
   passwordToggleIcon = 'eye';
-  usuario = null;
-  contrasenna = null;
+  email: string;
+  password: string;
   messaje: string="";
   formulario: FormGroup;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private auth: AuthService) {
     this.formulario=new FormGroup({
       email: new FormControl('',[Validators.required, Validators.minLength(10), Validators.email]),
       pass: new FormControl('', [Validators.required, Validators.minLength(6)]),
@@ -36,7 +37,13 @@ export class RegistroPage implements OnInit {
     this.router.navigate(['home']);
   }
 
-  ngOnInit() {
+  registrar(){
+    this.auth.register(this.email, this.password).then(auth => {
+      this.router.navigate(['/home'])
+      console.log(auth), alert('Usuario registrado con exito')
+    }).catch(err => console.log(err))
   }
 
+  ngOnInit() {
+  }
 }
