@@ -1,0 +1,25 @@
+<ion-header style="background-color: black">
+  <div id="bkl">
+    <ion-icon name="close-outline" [routerLink]="['/login']"></ion-icon>
+  </div>
+</ion-header>
+
+<ion-content [fullscreen]="false">
+  <ion-header>
+    <ion-toolbar color="tertiary">
+      <ion-title class="txt">RegistApp</ion-title>
+    </ion-toolbar>
+    <ion-toolbar class="txt2">
+      <ion-title class="txt2">Alumnos</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-list>
+    <ion-item *ngFor="let p of listaAlum">
+      <ion-label class="txtalum">{{p.name}}</ion-label>
+      <ion-checkbox></ion-checkbox>
+    </ion-item>
+    <ion-button expand="full" shape="round" (click)="alerta()" [routerLink]="['/welcome']">Cerrar Asistencia</ion-button>
+  </ion-list>
+</ion-content>
+

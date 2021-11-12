@@ -11,6 +11,9 @@
     </ion-toolbar>
   </ion-header>
 
-
-
+  <ion-list>
+    <ion-item *ngFor="let p of listaRamos">
+      <ion-label><a href="../alumnos">{{p.nombre}}</a></ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>

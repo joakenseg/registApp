@@ -6,8 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./welcome.page.scss'],
 })
 export class WelcomePage implements OnInit {
+  
+  listaRamos:{id:number, nombre:string}[]=[];
 
-  constructor() { }
+  constructor() {
+    this.listaRamos=[{"id": 1, "nombre": "Programacion"},
+    {"id": 2, "nombre": "Base de datos"},
+    {"id": 3, "nombre": "Arquitectura"}]
+   }
 
   ngOnInit() {
   }
