@@ -1,8 +1,6 @@
 #bkl {
     margin: 5%;
-    ion-icon {
-      font-size: 30px;
-      float: right;
+    ion-icon {      
       margin-bottom: 2%;
       color: white;
     }
@@ -21,4 +19,14 @@
 
 .txtalum {
   font-size: smaller;
+}
+
+.iconback {
+  font-size: 30px;
+  float: left;
+}
+
+.iconexit {
+  font-size: 30px;
+  float: right;
 }
