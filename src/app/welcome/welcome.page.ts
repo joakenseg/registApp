@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../servicios/auth.service';
 
 @Component({
   selector: 'app-welcome',
@@ -8,14 +9,18 @@ import { Component, OnInit } from '@angular/core';
 export class WelcomePage implements OnInit {
   
   listaRamos:{id:number, nombre:string}[]=[];
+  name: string;
+  Bienvenida:string;
+  nombre:string;
+  apellido:string;
 
-  constructor() {
+  constructor(private authservice: AuthService) {
+    this.ngOnInit();
     this.listaRamos=[{"id": 1, "nombre": "Programacion"},
     {"id": 2, "nombre": "Base de datos"},
-    {"id": 3, "nombre": "Arquitectura"}]
-   }
+    {"id": 3, "nombre": "Arquitectura"}]}
 
   ngOnInit() {
+    console.log(this.authservice.test())
   }
-
 }

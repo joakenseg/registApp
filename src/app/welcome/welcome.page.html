@@ -3,15 +3,14 @@
     <ion-icon name="close-outline" [routerLink]="['/login']"></ion-icon>
   </div>
 </ion-header>
-
 <ion-content [fullscreen]="true">
   <ion-header>
     <ion-toolbar color="tertiary">
       <ion-title class="txt">RegistApp</ion-title>
     </ion-toolbar>
   </ion-header>
-
   <ion-list>
+    <h2><b>Bienvenido joaquin</b></h2>
     <ion-item *ngFor="let p of listaRamos">
       <ion-label><a href="../alumnos">{{p.nombre}}</a></ion-label>
     </ion-item>

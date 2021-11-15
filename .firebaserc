@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "registraap-31401": {
+      "hosting": {
+        "app": [
+          "registraap-31401"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "registraap-31401"
+  }
+}
