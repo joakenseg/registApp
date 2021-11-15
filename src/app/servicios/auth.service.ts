@@ -38,7 +38,7 @@ export class AuthService {
             password: password,
             uid: uid
           })
-        resolve(uid)
+        resolve(res)
       }).catch( err => reject(err))
     })
   }

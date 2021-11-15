@@ -15,12 +15,11 @@ export class WelcomePage implements OnInit {
   apellido:string;
 
   constructor(private authservice: AuthService) {
-    this.ngOnInit();
     this.listaRamos=[{"id": 1, "nombre": "Programacion"},
     {"id": 2, "nombre": "Base de datos"},
     {"id": 3, "nombre": "Arquitectura"}]}
 
   ngOnInit() {
-    console.log(this.authservice.test())
+    
   }
 }
