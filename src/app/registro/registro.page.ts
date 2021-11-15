@@ -16,9 +16,13 @@ export class RegistroPage implements OnInit {
   password: string;
   messaje: string="";
   formulario: FormGroup;
+  nombre: string;
+  apellido: string;
 
   constructor(private router: Router, private auth: AuthService) {
     this.formulario=new FormGroup({
+      apellido: new FormControl('',[Validators.required, Validators.minLength(3)]),
+      nombre: new FormControl('',[Validators.required, Validators.minLength(3)]),
       email: new FormControl('',[Validators.required, Validators.minLength(10), Validators.email]),
       pass: new FormControl('', [Validators.required, Validators.minLength(6)]),
     });
@@ -38,7 +42,7 @@ export class RegistroPage implements OnInit {
   }
 
   registrar(){
-    this.auth.register(this.email, this.password).then(auth => {
+    this.auth.register(this.email, this.password, this.nombre, this.apellido).then(auth => {
       this.router.navigate(['/home'])
       console.log(auth), alert('Usuario registrado con exito')
     }).catch(err => console.log(err))

@@ -12,6 +12,7 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { firebaseConfig } from '../environments/environment';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,8 +25,11 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     HttpClientModule,
+    AngularFireModule
   ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [{ 
+    provide: RouteReuseStrategy,
+    useClass: IonicRouteStrategy, }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
