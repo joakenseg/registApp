@@ -42,6 +42,7 @@ export class AuthService {
       }).catch( err => reject(err))
     })
   }
+  
   test(){
     console.log(this.db.collection('user'))
   }
