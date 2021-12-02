@@ -36,6 +36,7 @@
     "cordova-plugin-camera": "^6.0.0",
     "cordova-plugin-qrscanner": "^3.0.1",
     "firebase": "^9.4.1",
+    "jsqr": "^1.4.0",
     "rxfire": "^6.0.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.2.0",
