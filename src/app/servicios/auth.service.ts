@@ -17,6 +17,13 @@ export class AuthService {
 
   constructor(private AFauth: AngularFireAuth, private router: Router, private db: AngularFirestore, public plataform: Platform, private afd: AngularFireDatabase ) { }
 
+  async resetPassword(email:string):Promise<void>{
+    try{
+      return this.AFauth.sendPasswordResetEmail(email);
+    }
+    catch(error){console.log(error)}
+  }
+
   login(email:string, password:string){
     if(this.plataform.is('desktop')){
       return new Promise((resolve, rejected) => {
