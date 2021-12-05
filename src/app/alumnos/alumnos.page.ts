@@ -87,7 +87,7 @@ export class AlumnosPage implements OnInit {
         this.scanActive = false;
         this.scanResult = 'Asistencia registrada correctamente';
         this.database.list('Asistencia/').push({
-          Asignatura: code.data,
+          Asignatura: code.data
         });
       } else {
         requestAnimationFrame(this.scan.bind(this));
