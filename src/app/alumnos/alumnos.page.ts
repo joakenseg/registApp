@@ -1,6 +1,8 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { LoadingController, ToastController } from '@ionic/angular';
 import jsQR from 'jsqr';
+import { AngularFireDatabase } from '@angular/fire/compat/database';
+import { observable } from 'rxjs';
 
 
 @Component({
@@ -21,7 +23,7 @@ export class AlumnosPage implements OnInit {
 
   loading: HTMLIonLoadingElement = null;
 
-  constructor(private toastCtrl: ToastController, private loadingCtrl: LoadingController) { }
+  constructor(private toastCtrl: ToastController, private loadingCtrl: LoadingController, private database:AngularFireDatabase) { }
 
   ngOnInit() {
   }
@@ -83,8 +85,10 @@ export class AlumnosPage implements OnInit {
         console.log(code);
         
         this.scanActive = false;
-        this.scanResult = code.data;
-        this.showQrToast();
+        this.scanResult = 'Asistencia registrada correctamente';
+        this.database.list('Asistencia/').push({
+          Asignatura: code.data,
+        });
       } else {
         requestAnimationFrame(this.scan.bind(this));
       }
