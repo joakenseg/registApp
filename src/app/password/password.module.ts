@@ -8,12 +8,15 @@ import { PasswordPageRoutingModule } from './password-routing.module';
 
 import { PasswordPage } from './password.page';
 
+import { ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    PasswordPageRoutingModule
+    PasswordPageRoutingModule,
+    ReactiveFormsModule
   ],
   declarations: [PasswordPage]
 })

@@ -14,22 +14,36 @@
   <div id="container">
     <ion-card>
       <ion-card-header>
-        <p>Ingresa tu correo electronico</p>
+        <p>Ingrese su nombre</p>
       </ion-card-header>
       <form [formGroup]="formulario" (ngSubmit)="SaveUser()">
         <ion-item>
-          <ion-input placeholder="Correo electrónico" formControlName="email"></ion-input>
+          <ion-input [(ngModel)]="nombre" placeholder="Nombre" formControlName="nombre"></ion-input>
+          <ion-icon name="mail"></ion-icon>
+        </ion-item>
+        <ion-card-header>
+          <p>Ingrese su apellido</p>
+        </ion-card-header>
+        <ion-item>
+          <ion-input [(ngModel)]="apellido" placeholder="Apellido" formControlName="apellido"></ion-input>
+          <ion-icon name="mail"></ion-icon>
+        </ion-item>
+        <ion-card-header>
+          <p>Ingresa tu correo electronico</p>
+        </ion-card-header>
+        <ion-item>
+          <ion-input [(ngModel)]="email" placeholder="Correo electrónico" formControlName="email"></ion-input>
           <ion-icon name="mail"></ion-icon>
         </ion-item>
         <ion-card-header>
           <p>Ingresa tu nueva contraseña</p>
         </ion-card-header>
         <ion-item>
-          <ion-input [(ngModel)]="contrasenna" [type]="show ? 'text' : 'password'" placeholder="Contraseña" formControlName="pass"></ion-input>
+          <ion-input [(ngModel)]="password" [type]="show ? 'text' : 'password'" placeholder="Contraseña" formControlName="pass"></ion-input>
           <ion-icon [name]="passwordToggleIcon" (click)="toggleIcon()"></ion-icon>
         </ion-item>
         <ion-card-content>
-          <ion-button type="ngSubmit" [disabled]="formulario.invalid">Registrar</ion-button>
+          <ion-button (click)="registrar()" [disabled]="formulario.invalid">Registrar</ion-button>
         </ion-card-content>
       </form>
     </ion-card>
